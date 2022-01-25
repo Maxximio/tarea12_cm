@@ -20,4 +20,6 @@ public interface IAbogadoRepo {
 	
 	Abogado buscarAbogadoFirmaNamed(String firma);
 	
+	Abogado buscarAbogadoFirmaNative(String firma);
+	
 }

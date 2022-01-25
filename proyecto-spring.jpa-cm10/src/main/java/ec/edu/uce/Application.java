@@ -99,31 +99,42 @@ public class Application implements CommandLineRunner{
 		Guardia g1Apellido =this.guardService.buscarGuardiaApellidoNamedService("Alvarado");
 		LOG.info("El guardia ha sido: "+g1Apellido);
 		
-		//busca con el typed query
-		LOG.info(docService.buscarDoctorEspecialidadTypeService("pediatra"));
-		//busca con named query
-		LOG.info(docService.buscarDoctorEspecialidadNamedService("pediatra"));
+		
 		
 		//busca con el typed query
-		LOG.info(arqService.buscarArquitectoApellidoTypeService("Aguiler"));
+		//LOG.info(docService.buscarDoctorEspecialidadTypeService("pediatra"));
 		//busca con named query
-		LOG.info(arqService.buscarArquitectoApellidoNamedService("Aguiler"));
+		//LOG.info(docService.buscarDoctorEspecialidadNamedService("pediatra"));
+		//busca con native query
+		LOG.info(docService.buscarDoctorEspecialidadNativeService("pediatra"));
 		
 		//busca con el typed query
-		LOG.info(aboService.buscarAbogadoFirmaTypeService("abogados de Cayambe"));
+		//LOG.info(arqService.buscarArquitectoApellidoTypeService("Aguiler"));
 		//busca con named query
-		LOG.info(aboService.buscarAbogadoFirmaNamedService("abogados de Cayambe"));
+		//LOG.info(arqService.buscarArquitectoApellidoNamedService("Aguiler"));
+		//busca con native query
+		LOG.info(arqService.buscarArquitectoApellidoNativeService("Aguiler"));
 		
 		//busca con el typed query
-		LOG.info(choService.buscarChoferNombreTypeService("Mateo"));
+		//LOG.info(aboService.buscarAbogadoFirmaTypeService("abogados de Cayambe"));
 		//busca con named query
-		LOG.info(choService.buscarChoferNombreNamedService("Mateo"));
+		//LOG.info(aboService.buscarAbogadoFirmaNamedService("abogados de Cayambe"));
+		//busca con native query
+		LOG.info(aboService.buscarAbogadoFirmaNativeService("abogados de Cayambe"));
 		
 		//busca con el typed query
-		LOG.info(mesService.buscarMeseroRestauranteTypeService("McDonalds"));
+		//LOG.info(choService.buscarChoferNombreTypeService("Mateo"));
 		//busca con named query
-		LOG.info(mesService.buscarMeseroRestauranteNamedService("McDonalds"));
+		//LOG.info(choService.buscarChoferNombreNamedService("Mateo"));
+		//busca con native query
+		LOG.info(choService.buscarChoferNombreNativeService("Mateo"));
 		
+		//busca con el typed query
+		//LOG.info(mesService.buscarMeseroRestauranteTypeService("McDonalds"));
+		//busca con named query
+		//LOG.info(mesService.buscarMeseroRestauranteNamedService("McDonalds"));
+		//busca con native query
+		LOG.info(mesService.buscarMeseroRestauranteNativeService("McDonalds"));
 		
 	}
 

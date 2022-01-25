@@ -59,5 +59,11 @@ public class ArquitectoServiceImpl implements IArquitectoSerivce{
 		// TODO Auto-generated method stub
 		return this.arqRepo.buscarArquitectoApellidoNamed(apellido);
 	}
+
+	@Override
+	public Arquitecto buscarArquitectoApellidoNativeService(String apellido) {
+		// TODO Auto-generated method stub
+		return this.arqRepo.buscarArquitectoApellidoNative(apellido);
+	}
 	
 }

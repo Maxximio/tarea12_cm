@@ -19,4 +19,6 @@ void InsertarChofer(Chofer cho);
 	Chofer buscarChoferNombreType(String nombre);
 	
 	Chofer buscarChoferNombreNamed(String nombre);
+	
+	Chofer buscarChoferNombreNative(String nombre);
 }

@@ -71,5 +71,12 @@ public class ChoferRepoImpl implements IChoferRepo{
 		miQuery.setParameter("valor", nombre);
 		return (Chofer)miQuery.getSingleResult();
 	}
+
+	@Override
+	public Chofer buscarChoferNombreNative(String nombre) {
+		Query miQuery= this.entityManager.createNativeQuery("select * from chofer g where g.nombre=:valor",Chofer.class);
+		miQuery.setParameter("valor", nombre);
+		return (Chofer) miQuery.getSingleResult();
+	}
 	
 }

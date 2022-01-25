@@ -19,4 +19,6 @@ public interface IMeseroRepo {
 	Mesero buscarMeseroRestauranteType(String restaurante);
 	
 	Mesero buscarMeseroRestauranteNamed(String restaurante);
+	
+	Mesero buscarMeseroRestauranteNative(String restaurante);
 }

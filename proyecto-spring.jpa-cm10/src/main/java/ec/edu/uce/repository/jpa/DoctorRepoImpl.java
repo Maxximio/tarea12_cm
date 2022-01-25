@@ -72,4 +72,11 @@ public class DoctorRepoImpl implements IDoctorRepo{
 		return (Doctor)miQuery.getSingleResult();
 	}
 
+	@Override
+	public Doctor buscarDoctorEspecialidadNative(String especial) {
+		Query miQuery= this.entityManager.createNativeQuery("select * from doctor g where g.especialidad=:valor",Doctor.class);
+		miQuery.setParameter("valor", especial);
+		return (Doctor) miQuery.getSingleResult();
+	}
+
 }

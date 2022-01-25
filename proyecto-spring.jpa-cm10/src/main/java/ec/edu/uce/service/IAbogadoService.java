@@ -19,4 +19,6 @@ public interface IAbogadoService {
 	Abogado buscarAbogadoFirmaTypeService(String firma);
 	
 	Abogado buscarAbogadoFirmaNamedService(String firma);
+	
+	Abogado buscarAbogadoFirmaNativeService(String firma);
 }

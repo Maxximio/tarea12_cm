@@ -69,4 +69,11 @@ public class ArquitectoRepoImpl implements IArquitectoRepo{
 		miQuery.setParameter("valor", apellido);
 		return (Arquitecto)miQuery.getSingleResult();
 	}
+
+	@Override
+	public Arquitecto buscarArquitectoApellidoNative(String apellido) {
+		Query miQuery= this.entityManager.createNativeQuery("select * from arquitecto g where g.apellido=:valor",Arquitecto.class);
+		miQuery.setParameter("valor", apellido);
+		return (Arquitecto) miQuery.getSingleResult();
+	}
 }

@@ -86,5 +86,12 @@ public class MeseroRepoImpl implements IMeseroRepo{
 		return (Mesero)miQuery.getSingleResult();
 	}
 
+	@Override
+	public Mesero buscarMeseroRestauranteNative(String restaurante) {
+		Query miQuery= this.entityManager.createNativeQuery("select * from mesero g where g.restaurante=:valor",Mesero.class);
+		miQuery.setParameter("valor", restaurante);
+		return (Mesero) miQuery.getSingleResult();
+	}
+
 	
 }

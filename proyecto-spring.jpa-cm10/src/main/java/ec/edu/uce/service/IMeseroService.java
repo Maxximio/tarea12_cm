@@ -19,4 +19,6 @@ public interface IMeseroService {
 	Mesero buscarMeseroRestauranteTypeService(String restaurante);
 	
 	Mesero buscarMeseroRestauranteNamedService(String restaurante);
+	
+	Mesero buscarMeseroRestauranteNativeService(String restaurante);
 }

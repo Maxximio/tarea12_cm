@@ -19,4 +19,6 @@ public interface IChoferService {
 	Chofer buscarChoferNombreTypeService(String nombre);
 	
 	Chofer buscarChoferNombreNamedService(String nombre);
+	
+	Chofer buscarChoferNombreNativeService(String nombre);
 }

@@ -71,5 +71,12 @@ public class AbogadoRepoImpl implements IAbogadoRepo{
 		miQuery.setParameter("valor", firma);
 		return (Abogado)miQuery.getSingleResult();
 	}
+
+	@Override
+	public Abogado buscarAbogadoFirmaNative(String firma) {
+		Query miQuery= this.entityManager.createNativeQuery("select * from abogado g where g.firma=:valor",Abogado.class);
+		miQuery.setParameter("valor", firma);
+		return (Abogado) miQuery.getSingleResult();
+	}
 	
 }
