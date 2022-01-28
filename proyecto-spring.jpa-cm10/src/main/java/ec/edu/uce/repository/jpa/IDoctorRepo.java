@@ -21,4 +21,6 @@ public interface IDoctorRepo {
 	Doctor buscarDoctorEspecialidadNamed(String especial);
 	
 	Doctor buscarDoctorEspecialidadNative(String especial);
+	
+	Doctor buscarDoctorEspecialidadCriteria(String especial);
 }

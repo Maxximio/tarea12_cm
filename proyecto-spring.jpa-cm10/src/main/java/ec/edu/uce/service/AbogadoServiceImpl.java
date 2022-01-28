@@ -66,4 +66,10 @@ public class AbogadoServiceImpl implements IAbogadoService{
 		return this.aboRepo.buscarAbogadoFirmaNative(firma);
 	}
 
+	@Override
+	public Abogado buscarAbogadoFirmaCriteriaService(String firma) {
+		// TODO Auto-generated method stub
+		return this.aboRepo.buscarAbogadoFirmaCriteria(firma);
+	}
+
 }

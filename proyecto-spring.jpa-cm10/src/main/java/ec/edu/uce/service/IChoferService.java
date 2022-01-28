@@ -21,4 +21,6 @@ public interface IChoferService {
 	Chofer buscarChoferNombreNamedService(String nombre);
 	
 	Chofer buscarChoferNombreNativeService(String nombre);
+	
+	Chofer buscarChoferNombreCriteriaService(String nombre);
 }

@@ -21,4 +21,6 @@ public interface IMeseroService {
 	Mesero buscarMeseroRestauranteNamedService(String restaurante);
 	
 	Mesero buscarMeseroRestauranteNativeService(String restaurante);
+	
+	Mesero buscarMeseroRestauranteCriteriaService(String restaurante);
 }

@@ -64,6 +64,12 @@ public class MeseroServiceImpl implements IMeseroService{
 	public Mesero buscarMeseroRestauranteNativeService(String restaurante) {
 		// TODO Auto-generated method stub
 		return this.mesRepo.buscarMeseroRestauranteNative(restaurante);
+	}
+
+	@Override
+	public Mesero buscarMeseroRestauranteCriteriaService(String restaurante) {
+		// TODO Auto-generated method stub
+		return this.mesRepo.buscarMeseroRestauranteCriteria(restaurante);
 	} 
 	
 }

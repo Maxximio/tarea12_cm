@@ -21,4 +21,6 @@ public interface IArquitectoSerivce {
 	Arquitecto buscarArquitectoApellidoNamedService(String apellido);
 	
 	Arquitecto buscarArquitectoApellidoNativeService(String apellido);
+	
+	Arquitecto buscarArquitectoApellidoCriteriaService(String apellido);
 }

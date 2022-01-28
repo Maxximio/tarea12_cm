@@ -21,4 +21,6 @@ void InsertarChofer(Chofer cho);
 	Chofer buscarChoferNombreNamed(String nombre);
 	
 	Chofer buscarChoferNombreNative(String nombre);
+	
+	Chofer buscarChoferNombreCriteria(String nombre);
 }

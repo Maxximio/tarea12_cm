@@ -4,11 +4,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
 import ec.edu.uce.modelo.jpa.Chofer;
+import ec.edu.uce.modelo.jpa.Doctor;
 import ec.edu.uce.modelo.jpa.Guardia;
 
 @Repository
@@ -77,6 +82,21 @@ public class ChoferRepoImpl implements IChoferRepo{
 		Query miQuery= this.entityManager.createNativeQuery("select * from chofer g where g.nombre=:valor",Chofer.class);
 		miQuery.setParameter("valor", nombre);
 		return (Chofer) miQuery.getSingleResult();
+	}
+
+	@Override
+	public Chofer buscarChoferNombreCriteria(String nombre) {
+		CriteriaBuilder myCriteria=this.entityManager.getCriteriaBuilder();
+		CriteriaQuery<Chofer> myQuery=myCriteria.createQuery(Chofer.class);
+		
+		Root<Chofer>myTabla=myQuery.from(Chofer.class);
+		
+		Predicate p1=myCriteria.equal(myTabla.get("nombre"),nombre);
+		
+		myQuery.select(myTabla).where(p1);
+		
+		TypedQuery<Chofer> typedQuery=this.entityManager.createQuery(myQuery);
+		return typedQuery.getSingleResult();
 	}
 	
 }

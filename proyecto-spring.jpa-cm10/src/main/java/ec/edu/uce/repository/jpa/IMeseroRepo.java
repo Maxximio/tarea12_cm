@@ -21,4 +21,6 @@ public interface IMeseroRepo {
 	Mesero buscarMeseroRestauranteNamed(String restaurante);
 	
 	Mesero buscarMeseroRestauranteNative(String restaurante);
+	
+	Mesero buscarMeseroRestauranteCriteria(String restaurante);
 }

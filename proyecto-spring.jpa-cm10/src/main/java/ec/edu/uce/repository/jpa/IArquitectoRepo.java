@@ -21,4 +21,6 @@ public interface IArquitectoRepo {
 	Arquitecto buscarArquitectoApellidoNamed(String apellido);
 	
 	Arquitecto buscarArquitectoApellidoNative(String apellido);
+	
+	Arquitecto buscarArquitectoApellidoCriteria(String apellido);
 }

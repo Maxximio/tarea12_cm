@@ -21,4 +21,6 @@ public interface IDoctorService {
 	Doctor buscarDoctorEspecialidadNamedService(String especial);
 	
 	Doctor buscarDoctorEspecialidadNativeService(String especial);
+	
+	Doctor buscarDoctorEspecialidadCriteriaService(String especial);
 }

@@ -6,6 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.apache.logging.log4j.LogManager;
@@ -91,6 +95,21 @@ public class MeseroRepoImpl implements IMeseroRepo{
 		Query miQuery= this.entityManager.createNativeQuery("select * from mesero g where g.restaurante=:valor",Mesero.class);
 		miQuery.setParameter("valor", restaurante);
 		return (Mesero) miQuery.getSingleResult();
+	}
+
+	@Override
+	public Mesero buscarMeseroRestauranteCriteria(String restaurante) {
+		CriteriaBuilder myCriteria=this.entityManager.getCriteriaBuilder();
+		CriteriaQuery<Mesero> myQuery=myCriteria.createQuery(Mesero.class);
+		
+		Root<Mesero>myTabla=myQuery.from(Mesero.class);
+		
+		Predicate p1=myCriteria.equal(myTabla.get("restaurante"),restaurante);
+		
+		myQuery.select(myTabla).where(p1);
+		
+		TypedQuery<Mesero> typedQuery=this.entityManager.createQuery(myQuery);
+		return typedQuery.getSingleResult();
 	}
 
 	

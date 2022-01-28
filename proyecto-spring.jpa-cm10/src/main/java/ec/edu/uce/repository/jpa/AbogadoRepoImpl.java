@@ -4,11 +4,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
 import ec.edu.uce.modelo.jpa.Abogado;
+import ec.edu.uce.modelo.jpa.Arquitecto;
 import ec.edu.uce.modelo.jpa.Guardia;
 
 @Repository
@@ -77,6 +82,21 @@ public class AbogadoRepoImpl implements IAbogadoRepo{
 		Query miQuery= this.entityManager.createNativeQuery("select * from abogado g where g.firma=:valor",Abogado.class);
 		miQuery.setParameter("valor", firma);
 		return (Abogado) miQuery.getSingleResult();
+	}
+
+	@Override
+	public Abogado buscarAbogadoFirmaCriteria(String firma) {
+		CriteriaBuilder myCriteria=this.entityManager.getCriteriaBuilder();
+		CriteriaQuery<Abogado> myQuery=myCriteria.createQuery(Abogado.class);
+		
+		Root<Abogado>myTabla=myQuery.from(Abogado.class);
+		
+		Predicate p1=myCriteria.equal(myTabla.get("firma"),firma);
+		
+		myQuery.select(myTabla).where(p1);
+		
+		TypedQuery<Abogado> typedQuery=this.entityManager.createQuery(myQuery);
+		return typedQuery.getSingleResult();
 	}
 	
 }

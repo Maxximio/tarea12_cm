@@ -66,4 +66,10 @@ public class DoctorServiceImpl implements IDoctorService{
 		return this.docRepo.buscarDoctorEspecialidadNative(especial);
 	}
 
+	@Override
+	public Doctor buscarDoctorEspecialidadCriteriaService(String especial) {
+		// TODO Auto-generated method stub
+		return this.docRepo.buscarDoctorEspecialidadCriteria(especial);
+	}
+
 }

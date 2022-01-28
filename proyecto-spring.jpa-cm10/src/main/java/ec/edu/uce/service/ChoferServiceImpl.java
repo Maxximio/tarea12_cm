@@ -65,5 +65,11 @@ public class ChoferServiceImpl implements IChoferService{
 		// TODO Auto-generated method stub
 		return this.choRepo.buscarChoferNombreNative(nombre);
 	}
+
+	@Override
+	public Chofer buscarChoferNombreCriteriaService(String nombre) {
+		// TODO Auto-generated method stub
+		return this.choRepo.buscarChoferNombreCriteria(nombre);
+	}
 	
 }

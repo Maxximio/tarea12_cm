@@ -4,11 +4,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
 import ec.edu.uce.modelo.jpa.Arquitecto;
+import ec.edu.uce.modelo.jpa.Chofer;
 import ec.edu.uce.modelo.jpa.Guardia;
 
 @Repository
@@ -75,5 +80,20 @@ public class ArquitectoRepoImpl implements IArquitectoRepo{
 		Query miQuery= this.entityManager.createNativeQuery("select * from arquitecto g where g.apellido=:valor",Arquitecto.class);
 		miQuery.setParameter("valor", apellido);
 		return (Arquitecto) miQuery.getSingleResult();
+	}
+
+	@Override
+	public Arquitecto buscarArquitectoApellidoCriteria(String apellido) {
+		CriteriaBuilder myCriteria=this.entityManager.getCriteriaBuilder();
+		CriteriaQuery<Arquitecto> myQuery=myCriteria.createQuery(Arquitecto.class);
+		
+		Root<Arquitecto>myTabla=myQuery.from(Arquitecto.class);
+		
+		Predicate p1=myCriteria.equal(myTabla.get("apellido"),apellido);
+		
+		myQuery.select(myTabla).where(p1);
+		
+		TypedQuery<Arquitecto> typedQuery=this.entityManager.createQuery(myQuery);
+		return typedQuery.getSingleResult();
 	}
 }
