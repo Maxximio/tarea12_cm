@@ -51,6 +51,14 @@ public class Institucion {
 	public void setAlumno(Alumno alumno) {
 		this.alumno = alumno;
 	}
+
+	//to string
+	@Override
+	public String toString() {
+		return "Institucion [id=" + id + ", nombre=" + nombre + "]";
+	}
+	
+	
 	
 	
 }

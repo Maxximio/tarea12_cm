@@ -84,6 +84,13 @@ public class Alumno {
 		this.institucion = institucion;
 	}
 
+	//to string
+	@Override
+	public String toString() {
+		return "Alumno [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", curso=" + curso + ", paralelo="
+				+ paralelo + ", institucion=" + institucion + "]";
+	}
+
 	
 	
 	

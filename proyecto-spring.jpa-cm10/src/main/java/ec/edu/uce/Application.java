@@ -28,7 +28,7 @@ import ec.edu.uce.service.IEdificioService;
 @SpringBootApplication
 public class Application implements CommandLineRunner{
 	
-	//private static final Logger LOG= LogManager.getLogger(GuardiaRepoImpl.class);
+	private static final Logger LOG= LogManager.getLogger(Application.class);
 	
 	@Autowired
 	private IEdificioService ediService;
@@ -48,7 +48,47 @@ public class Application implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Conductor con=new Conductor();
+		
+		Alumno alu=new Alumno();
+		alu.setNombre("Ricardo");
+		alu.setApellido("Montalvo");
+		alu.setCurso("noveno");
+		alu.setParalelo("A");
+		
+		Institucion insti =new Institucion();
+		insti.setNombre("Colegio Salesiano");
+		
+		alu.setInstitucion(insti);
+		insti.setAlumno(alu);
+		
+		//aluService.insertarAlumnoService(alu);
+		//aluService.buscarPorCursoWhereService(alu);
+		
+		List <Alumno> listaF1 =this.aluService.buscarPorCursoJOINService("noveno");
+		LOG.info("Longitud"+listaF1.size());
+		for(Alumno alum: listaF1) {
+			LOG.info("Los Alumnos han sido: "+alum.toString());
+		}
+		
+		List <Alumno> listaF2 =this.aluService.buscarPorCursoJOINLeftService("noveno");
+		LOG.info("Longitud"+listaF2.size());
+		for(Alumno alum: listaF2) {
+			LOG.info("Los Alumnos han sido: "+alum.toString());
+		}
+		
+		List <Alumno> listaF3 =this.aluService.buscarPorCursoJOINRigthService("noveno");
+		LOG.info("Longitud"+listaF3.size());
+		for(Alumno alum: listaF3) {
+			LOG.info("Los Alumnos han sido: "+alum.toString());
+		}
+		
+		List <Alumno> listaF4 =this.aluService.buscarPorCursoWhereService("noveno");
+		LOG.info("Longitud"+listaF4.size());
+		for(Alumno alum: listaF4) {
+			LOG.info("Los Alumnos han sido: "+alum.toString());
+		}
+		
+		/*Conductor con=new Conductor();
 		con.setNombre("Ricardo");
 		con.setApellido("Galindo");
 		
@@ -72,7 +112,7 @@ public class Application implements CommandLineRunner{
 		
 		alu.setInstitucion(insti);
 		insti.setAlumno(alu);
-		aluService.insertarAlumnoService(alu);
+		aluService.insertarAlumnoService(alu);*/
 		
 		
 		/*Ciudadano ciu=new Ciudadano();
